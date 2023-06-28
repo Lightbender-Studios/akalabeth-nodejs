@@ -14,12 +14,11 @@ First screen after you start the program. Lucky number is used to seed the rando
 
 ## STARTUP2 GIF
 
-Next your attributes are generated. You just hit "N" until you see number you like. Then you choose to be a fighter or
-mage. Fighters can use the magic amulet but can't control
-what it does while a mage can't use rapiers or bows.
-STARTUP3 GIF - Welcome to Aklabeth screen. Shows this while generating world.
+Next your attributes are generated. You just hit "N" until you see number you like. Then you choose to be a fighter or mage. Fighters can use the magic amulet but can't control what it does while a mage can't use rapiers or bows.
+STARTUP3
+## Welcome to Aklabeth screen. Shows this while generating world.
 
-![STARTUP2 GIF](STARTUP2.GIF)
+![STARTUP3 GIF](STARTUP3.GIF)
 
 ## OUTSIDE GIF
 
