@@ -111,3 +111,24 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 
 ]633;E;touch server.js;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;1]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑1[39m[31m +0[39m[31m ~3[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>node server.js
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;E;node server.js;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;1]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑2[39m[31m +3[39m[31m ~1[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>node server.js
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;E;node server.js;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;1]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑2[39m[31m +4[39m[31m ~1[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>node server.js
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;E;node server.js;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;1]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑2[39m[31m +3[39m[31m ~1[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>node server.js
+
+PS>TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+]633;E;node server.js;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;1]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑2[39m[31m +3[39m[31m ~1[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+]633;E]633;D]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[92mlbff/stub-functions[39m[92m ↑6[39m[31m +1[39m[31m ~2[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
