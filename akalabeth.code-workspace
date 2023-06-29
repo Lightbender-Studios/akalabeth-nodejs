@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../Original Source Code/akalabeth"
+		},
+		{
+			"path": "../../../../Emulators/src/AppleWin"
+		},
+		{
+			"path": "js/akalabeth-phaser3-typescript"
+		}
+	],
+	"settings": {
+		"godot_tools.scene_file_config": "v:\\Projects\\RetroRenew\\Akalabeth\\LBFF\\src\\akalabeth-nodejs"
+	},
+}
