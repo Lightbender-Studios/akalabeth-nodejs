@@ -1,9 +1,6 @@
 # AkalaBeth
 
-This is where it all started; a little mini Ultima. Because this was written
-in Basic, there are a lot of variations floating around the net. The most
-common change was to modify the Magic Amulet. I believe the listing that
-I have included here is original.
+This is where it all started; a little mini Ultima. Because this was written in Basic, there are a lot of variations floating around the net. The most common change was to modify the Magic Amulet. I believe the listing that I have included here is original.
 
 The dungeons are almost the same as what ended up in Ultima. Each level is a 10x10 and the first 3 monsters were put on the first level. Second level has 4, the third has 5, and so forth. Also, the Giant Rat that you meet on the first level has even more hit points on the second! By the time you hit the 8th level you have stuff attacking you from all directions!
 
@@ -17,12 +14,11 @@ First screen after you start the program. Lucky number is used to seed the rando
 
 ## STARTUP2 GIF
 
-Next your attributes are generated. You just hit "N" until you see number you like. Then you choose to be a fighter or
-mage. Fighters can use the magic amulet but can't control
-what it does while a mage can't use rapiers or bows.
-STARTUP3 GIF - Welcome to Aklabeth screen. Shows this while generating world.
+Next your attributes are generated. You just hit "N" until you see number you like. Then you choose to be a fighter or mage. Fighters can use the magic amulet but can't control what it does while a mage can't use rapiers or bows.
+STARTUP3
+## Welcome to Aklabeth screen. Shows this while generating world.
 
-![STARTUP2 GIF](STARTUP2.GIF)
+![STARTUP3 GIF](STARTUP3.GIF)
 
 ## OUTSIDE GIF
 
