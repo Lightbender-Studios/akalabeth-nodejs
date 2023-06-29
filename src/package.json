@@ -1,0 +1,22 @@
+{
+  "name": "akalabeth-nodejs",
+  "version": "0.0.1",
+  "description": "A node and express version of the classic Akalabeth",
+  "main": "akalabeth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lightbender-Studios/akalabeth-nodejs.git"
+  },
+  "keywords": [
+    "rpg"
+  ],
+  "author": "Kevin Vidomski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lightbender-Studios/akalabeth-nodejs/issues"
+  },
+  "homepage": "https://github.com/Lightbender-Studios/akalabeth-nodejs#readme"
+}
