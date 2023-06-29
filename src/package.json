@@ -1,0 +1,11 @@
+{
+  "name": "akalabeth-nodejs",
+  "version": "0.0.1",
+  "description": "Node JS Akalabeth implementation",
+  "main": "akalabeth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Vidomski",
+  "license": "ISC"
+}
