@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Lightbender-Studios/akalabeth-nodejs/issues"
   },
-  "homepage": "https://github.com/Lightbender-Studios/akalabeth-nodejs#readme"
+  "homepage": "https://github.com/Lightbender-Studios/akalabeth-nodejs#readme",
+  "dependencies": {
+    "phaser3": "^0.4.34"
+  }
 }
