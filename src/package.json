@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Lightbender-Studios/akalabeth-nodejs#readme",
   "dependencies": {
+    "phaser": "^3.60.0",
     "phaser3": "^0.4.34"
   }
 }

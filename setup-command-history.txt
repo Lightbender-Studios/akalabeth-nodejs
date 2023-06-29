@@ -1,0 +1,34 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230628191355
+Username: WINTERMUTE-2014\kevinv
+RunAs User: WINTERMUTE-2014\kevinv
+Configuration Name: 
+Machine: WINTERMUTE-2014 (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "f:\Development Progs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\browser\media\shellIntegration.ps1" } catch {}
+Process ID: 29716
+PSVersion: 5.1.19041.3031
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.3031
+BuildVersion: 10.0.19041.3031
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is ..\setup-command-history.txt
+]633;E;Start-Transcript ..\x5csetup-command-history.txt;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;0]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[96mlbff/stub-functions[39m[96m ≡[39m[31m +2[39m[31m ~2[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>npm init
+  "dependencies": {
+    "phaser": "^3.60.0",
+    "phaser3": "^0.4.34"
+  },
+  "devDependencies": {}
+}
+
+
+Is this OK? (yes)
+]633;E;npm init;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;0]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[96mlbff/stub-functions[39m[96m ≡[39m[31m +2[39m[31m ~2[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
+PS>git status
+
+]633;E;git status;a23508d6-3083-4eb9-af10-f89e89977bb5]633;D;0]633;A]633;P;Cwd=V:\x5cProjects\x5cRetroRenew\x5cAkalabeth\x5cLBFF\x5csrc\x5cakalabeth-nodejs\x5csrcV:\Projects\RetroRenew\Akalabeth\LBFF\src\akalabeth-nodejs\src [93m[[39m[96mlbff/stub-functions[39m[96m ≡[39m[31m +2[39m[31m ~2[39m[31m -0[39m[31m ![39m[93m][39m> ]633;B
