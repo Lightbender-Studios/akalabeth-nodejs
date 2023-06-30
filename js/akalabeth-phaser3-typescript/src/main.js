@@ -1,6 +1,5 @@
 import Phaser from 'phaser'
 
-import HelloWorldScene from './HelloWorldScene'
 import akalabeth_scene from './akalabeth_scene'
 
 const config = {
