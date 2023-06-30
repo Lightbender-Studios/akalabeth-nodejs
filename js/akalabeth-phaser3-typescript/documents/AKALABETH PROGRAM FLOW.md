@@ -1,3 +1,50 @@
+# AKALABETH VARIABLES
+
+```javascript
+int ZZ
+int LE
+int DN[10,10]
+int TE[20,20]
+int XX[10]
+int YY[10]
+int PE[10,3]
+int LD[10,5]
+int CD[10,3]
+int FT[10,5]
+any LA[10,3]
+int X
+int Y
+int X1
+int Y1
+int DI
+int CE
+int RI
+int MC
+int L1
+int T2
+int L2
+int T2
+int B2
+int R1
+int R2
+string C[5] // Character Inventory in Store
+int B
+int EN
+int LN
+int TY
+int TX
+int IO
+string W[5] // Item Names
+int Z // Item Index
+int P // Item Price
+string PT
+int PW[5] // Character Inventory ??
+string M[10] // Monster Names
+string ML[10,1]
+string MZ[10,1]
+int LV // Game Difficulty Level
+```
+
 # AKALABETH PROGRAM FLOW
 
 ```mermaid
