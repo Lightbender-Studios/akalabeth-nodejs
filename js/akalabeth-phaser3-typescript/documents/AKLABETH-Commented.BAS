@@ -10,16 +10,26 @@
 40 TEXT : HOME : NORMAL : VTAB (12): PRINT " WELCOME TO AKALABETH, WORLD OF DOOM!"
 45 DIM DN%(10,10),TE%(20,20),XX%(10),YY%(10),PE%(10,3),LD%(10,5),CD%(10,3),FT%(10,5),LA(10,3)
 
-50 FOR X = 0 TO 20:TE%(X,0) = 1:TE%(0,X) = 1:TE%(X,20) = 1:TE%(20,X) = 1: NEXT
+50 FOR X = 0 TO 20
+    TE%(X,0) = 1
+    TE%(0,X) = 1
+    TE%(X,20) = 1
+    TE%(20,X) = 1
+52 NEXT
 
 55 : VTAB (23): PRINT " (PLEASE WAIT)";
 
-60 FOR X = 1 TO 19: FOR Y = 1 TO 19:TE%(X,Y) = INT ( RND (1) ^ 5 * 4.5 )
-65 IF TE%(X,Y) = 3 AND RND (1) > .5 THEN TE%(X,Y) = 0
+60 FOR X = 1 TO 19: FOR Y = 1 TO 19
+62   TE%(X,Y) = INT ( RND (1) ^ 5 * 4.5 )
+65     IF TE%(X,Y) = 3 AND RND (1) > .5 THEN TE%(X,Y) = 0
 70 NEXT : PRINT ".";: NEXT
 
-75 TE%( INT ( RND (1) * 19 + 1), INT ( RND (1) * 19 + 1)) = 5:TX = INT ( RND (1) * 19 + 1):TY = INT ( RND (1) * 19 + 1):TE%(TX,TY) = 3
+71 TE%( INT ( RND (1) * 19 + 1), INT ( RND (1) * 19 + 1)) = 5
+72 TX = INT ( RND (1) * 19 + 1)
+73 TY = INT ( RND (1) * 19 + 1)
+74 TE%(TX,TY) = 3
 80 XX%(0) = 139:YY%(0) = 79
+
 85 FOR X = 2 TO 20 STEP 2:XX%(X / 2) = INT ( ATN (1 / X) / ATN (1) * 140 + .5):YY%(X / 2) = INT (XX%(X / 2) * 4 / 7)
 90 PE%(X / 2,0) = 139 - XX%(X / 2):PE%(X / 2,1) = 139 + XX%(X / 2):PE%(X / 2,2) = 79 - YY%(X / 2):PE%(X / 2,3) = 79 + YY%(X / 2): NEXT
 95 PE%(0,0) = 0:PE%(0,1) = 279:PE%(0,2) = 0:PE%(0,3) = 159

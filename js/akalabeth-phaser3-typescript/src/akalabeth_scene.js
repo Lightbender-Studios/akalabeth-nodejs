@@ -6,52 +6,71 @@ export default class Akalabeth extends Phaser.Scene {
 		super('akalabeth')
 		this.level = 0
 		// DIM DN%(10,10),TE%(20,20),XX%(10),YY%(10),PE%(10,3),LD%(10,5),CD%(10,3),FT%(10,5),LA(10,3)
-		this.dn = new Array(10, 10)
+		this.dn = this.lbff_new_array(10, 10, -1)
 		this.te = this.lbff_new_array(20, 20, -1)
 		this.xx = this.lbff_new_array(10, -1, -1)
-		this.yy = new Array(10)
-		this.pe = new Array(10, 3)
-		this.ld = new Array(10, 5)
-		this.cd = new Array(10, 3)
-		this.ft = new Array(10, 5)
-		this.la = new Array(10, 3)
+		this.yy = this.lbff_new_array(10, -1, -1)
+		this.pe = this.lbff_new_array(10, 3, -1)
+		this.ld = this.lbff_new_array(10, 5, -1)
+		this.cd = this.lbff_new_array(10, 3, -1)
+		this.ft = this.lbff_new_array(10, 5, -1)
+		this.la = this.lbff_new_array(10, 3, -1)
 		this.item_names = ["FOOD", "RAPIER", "AXE", "SHIELD", "BOW AND ARROWS ", "MAGIC AMULET"]
 		this.monster_names = ["SKELETON", "ORC", "TROLL", "VAMPIRE", "GREMLIN", "GHOUL", "DEMON", "DRAGON"]
 		this.style = { font: '24px Courier', fill: '#00ff00' }
+
+		this.create_terrain_mountaion_boundry()
+		this.create_random_terrain()
+		console.log("TE")
+		console.table(this.te)
 	}
 
 	preload() {
 	}
 
-	create() {
-		//this.character_create()
-
-		// BUG: This is not right
-
-		this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
-		console.table(this.xx)
-		this.lbff_text(1, 23, "(PLEASE WAIT)", 10, 24, this.style)
-		for (let x = 0; x <= 19; x++) {
-			this.lbff_text(x + 14, 23, ".", 10, 24, this.style)
-			this.te[x][0] = 1
-			this.te[x][0] = 1
+	create_terrain_mountaion_boundry() {
+		for (let x = 0; x < 20; x++) {
 			this.te[x][0] = 1
 			this.te[0][x] = 1
 			this.te[x][19] = 1
 			this.te[19][x] = 1
 		}
+	}
 
-		for (let x = 1; x <= 19; x++) {
-			for (let y = 1; y <= 19; y++) {
-				this.te[x][y] = (Math.random() ^ 5 * 4.5) + 1 // BUG: This is not right
+	create_random_terrain() {
+		// this.lbff_text(1, 23, "(PLEASE WAIT)", 10, 24, this.style)
+		for (let x = 1; x <= 18; x++) {
+			for (let y = 1; y <= 18; y++) {
+				this.te[x][y] = Math.floor((Math.pow(Math.random(), 5)) * 4.5)
 				if (this.te[x][y] == 3 && Math.random() > .5) {
 					this.te[x][y] = 0
 				}
 			}
+			// this.lbff_text(1, 23, ".", 10, 24, this.style)
 		}
-		console.table(this.te)
 
-		// BUG: This is not right -- END
+		this.te[Math.floor(Math.random() * 18) + 1][Math.floor(Math.random() * 18) + 1] = 900
+		this.tx = Math.floor(Math.random() * 18) + 1
+		this.ty = Math.floor(Math.random() * 18) + 1
+		this.te[this.tx][this.ty] = 3
+		
+		this.xx[0] = 139
+		this.yy[0] = 79
+
+		// FOR X = 2 TO 20 STEP 2:XX%(X / 2) = INT ( ATN (1 / X) / ATN (1) * 140 + .5):YY%(X / 2) = INT (XX%(X / 2) * 4 / 7)
+		for (let x = 2; x <= 20; x += 2) {
+			this.xx[x / 2] = Math.floor(Math.atan(1 / x) / Math.atan(1) * 140 + .5)
+			this.yy[x / 2] = Math.floor(this.xx[x / 2] * 4 / 7)
+		}
+		console.log("XX")
+		console.table(this.xx)
+	}
+
+	create() {
+		console.table(this.te)
+		//this.character_create()
+
+		this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
 	}
 
 	/**
@@ -75,7 +94,7 @@ export default class Akalabeth extends Phaser.Scene {
 	 * @param {number} init_value
 	 */
 	lbff_new_array(x, y, init_value) {
-		let array = new Array(x)
+		let array = new Array(x + 1)
 
 		for (let i = 0; i < x; i++) {
 			if (y == -1) {
@@ -83,7 +102,7 @@ export default class Akalabeth extends Phaser.Scene {
 			}
 			else {
 				array[i] = new Array(y)
-				for (let j = 0; j < y; j++) {
+				for (let j = 0; j < y + 1; j++) {
 					array[i][j] = init_value
 				}
 			}
