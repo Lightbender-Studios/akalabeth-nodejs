@@ -15,6 +15,7 @@ export default class Akalabeth extends Phaser.Scene {
 		this.cd = this.lbff_new_array(10, 3, -1)
 		this.ft = this.lbff_new_array(10, 5, -1)
 		this.la = this.lbff_new_array(10, 3, -1)
+		this.w = this.lbff_new_array(9, -1, -1)
 		this.item_names = ["FOOD", "RAPIER", "AXE", "SHIELD", "BOW AND ARROWS ", "MAGIC AMULET"]
 		this.monster_names = ["SKELETON", "ORC", "TROLL", "VAMPIRE", "GREMLIN", "GHOUL", "DEMON", "DRAGON"]
 		this.style = { font: '24px Courier', fill: '#00ff00' }
@@ -53,17 +54,79 @@ export default class Akalabeth extends Phaser.Scene {
 		this.tx = Math.floor(Math.random() * 18) + 1
 		this.ty = Math.floor(Math.random() * 18) + 1
 		this.te[this.tx][this.ty] = 3
-		
+
 		this.xx[0] = 139
 		this.yy[0] = 79
 
-		// FOR X = 2 TO 20 STEP 2:XX%(X / 2) = INT ( ATN (1 / X) / ATN (1) * 140 + .5):YY%(X / 2) = INT (XX%(X / 2) * 4 / 7)
-		for (let x = 2; x <= 20; x += 2) {
-			this.xx[x / 2] = Math.floor(Math.atan(1 / x) / Math.atan(1) * 140 + .5)
-			this.yy[x / 2] = Math.floor(this.xx[x / 2] * 4 / 7)
+		for (let x = 2; x < 20; x += 2) {
+			this.pe[x / 2][0] = 139 - this.xx[x / 2]
+			this.pe[x / 2][1] = 139 + this.xx[x / 2]
+			this.pe[x / 2][2] = 79 - this.yy[x / 2]
+			this.pe[x / 2][3] = 79 + this.yy[x / 2]
 		}
+		// 95 PE%(0,0) = 0:PE%(0,1) = 279:PE%(0,2) = 0:PE%(0,3) = 159
+		this.pe[0][0] = 0
+		this.pe[0][1] = 279
+		this.pe[0][2] = 0
+		this.pe[0][3] = 159
+
+		// 100 FOR X = 1 TO 10:CD%(X,0) = 139 - XX%(X) / 3:CD%(X,1) = 139 + XX%(X) / 3:CD%(X,2) = 79 - YY%(X) * .7:CD%(X,3) = 79 + YY%(X): NEXT : PRINT " .";
+		for (let x = 1; x < 10; x++) {
+			this.cd[x][0] = 139 - this.xx[x] / 3
+			this.cd[x][1] = 139 + this.xx[x] / 3
+			this.cd[x][2] = 79 - this.yy[x] * .7
+			this.cd[x][3] = 79 + this.yy[x]
+		}
+		console.log(".") // TODO: this should display dots as it goes
+		// 105 FOR X = 0 TO 9:LD%(X,0) = (PE%(X,0) * 2 + PE%(X + 1,0)) / 3:LD%(X, 1) = (PE%(X,0) + 2 * PE%(X + 1,0)) / 3:W = LD%(X,0) - PE%(X,0)
+		for (let x = 0; x < 9; x++) {
+			this.ld[x][0] = (this.pe[x][0] * 2 + this.pe[x + 1][0]) / 3
+			this.ld[x][1] = (this.pe[x][0] + 2 * this.pe[x + 1][0]) / 3
+			this.ld[x][2] = (this.pe[x][1] * 2 + this.pe[x + 1][1]) / 3
+			this.ld[x][3] = (this.pe[x][1] + 2 * this.pe[x + 1][1]) / 3
+			this.ld[x][4] = (this.pe[x][2] * 2 + this.pe[x + 1][2]) / 3
+			this.ld[x][5] = (this.pe[x][2] + 2 * this.pe[x + 1][2]) / 3
+			this.ld[x][6] = (this.pe[x][3] * 2 + this.pe[x + 1][3]) / 3
+			this.ld[x][7] = (this.pe[x][3] + 2 * this.pe[x + 1][3]) / 3
+			this.w[x] = this.ld[x][0] - this.pe[x][0]
+
+		}
+
+		// 100 FOR X = 1 TO 10:CD%(X,0) = 139 - XX%(X) / 3:CD%(X,1) = 139 + XX%(X) / 3:CD%(X,2) = 79 - YY%(X) * .7:CD%(X,3) = 79 + YY%(X): NEXT : PRINT " .";
+		// 110 LD%(X,2) = PE%(X,2) + W * 4 / 7:LD%(X,3) = PE%(X,2) + 2 * W * 4 / 7: LD%(X,4) = (PE%(X,3) * 2 + PE%(X + 1,3)) / 3:LD%(X,5) = (PE%(X,3) + 2 * PE%(X + 1,3)) / 3
+		// 115 LD%(X,2) = LD%(X,4) - (LD%(X,4) - LD%(X,2)) * .8:LD%(X,3) = LD%(X,5) - (LD%(X,5) - LD%(X,3)) * .8: IF LD%(X,3) = LD%(X,4) THEN LD%(X,3) = LD%(X,3) - 1
+		// 120 NEXT
+		// for(let x = 1; x <= 10; x++) {
+		// 	this.cd[x][0] = 139 - this.xx[x] / 3
+		// 	this.cd[x][1] = 139 + this.xx[x] / 3
+		// 	this.cd[x][2] = 79 - this.yy[x] * .7
+		// 	this.cd[x][3] = 79 + this.yy[x]
+		// }
+
+
+		// FOR X = 0 TO 9
+		// :FT%(X,0) = 139 - XX%(X) / 3
+		// :FT%(X,1) = 139 + XX%(X) / 3
+		// :FT%(X,2) = 139 - XX%(X + 1) / 3
+		// :FT%(X,3) = 139 + XX%(X + 1) / 3
+		// :FT%(X,4) = 79 + (YY%(X) * 2 + YY%(X + 1)) / 3
+		// :FT%(X,5) = 79 + (YY%(X) + 2 * YY%(X + 1)) / 3
+		// NEXT
+		// for(let x = 0; x <= 9; x++) {
+		// 	this.ft[x][0] = 139 - this.xx[x] / 3
+		// 	this.ft[x][1] = 139 + this.xx[x] / 3
+		// 	this.ft[x][2] = 139 - this.xx[x + 1] / 3
+		// 	this.ft[x][3] = 139 + this.xx[x + 1] / 3
+		// 	this.ft[x][4] = 79 + (this.yy[x] * 2 + this.yy[x + 1]) / 3
+		// 	this.ft[x][5] = 79 + (this.yy[x] + 2 * this.yy[x + 1]) / 3
+		// }
+
+		// 135 FOR X = 0 TO 9:LA(X,0) = (FT%(X,0) * 2 + FT%(X,1)) / 3:LA(X,1) = (FT%(X,0) + 2 * FT%(X,1)) / 3:LA(X,3) = FT%(X,4):LA(X,2) = 159 - LA(X,3): NEXT
+
 		console.log("XX")
 		console.table(this.xx)
+
+		//
 	}
 
 	create() {
