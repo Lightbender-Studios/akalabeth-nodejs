@@ -20,7 +20,7 @@ export default class Akalabeth extends Phaser.Scene {
 		this.monster_names = ["SKELETON", "ORC", "TROLL", "VAMPIRE", "GREMLIN", "GHOUL", "DEMON", "DRAGON"]
 		this.style = { font: '24px Courier', fill: '#00ff00' }
 
-		this.create_terrain_mountaion_boundry()
+		this.create_terrain_mountain_boundry()
 		this.create_random_terrain()
 		console.log("TE")
 		console.table(this.te)
@@ -29,7 +29,7 @@ export default class Akalabeth extends Phaser.Scene {
 	preload() {
 	}
 
-	create_terrain_mountaion_boundry() {
+	create_terrain_mountain_boundry() {
 		for (let x = 0; x < 20; x++) {
 			this.te[x][0] = 1
 			this.te[0][x] = 1
@@ -82,58 +82,115 @@ export default class Akalabeth extends Phaser.Scene {
 		for (let x = 0; x < 9; x++) {
 			this.ld[x][0] = (this.pe[x][0] * 2 + this.pe[x + 1][0]) / 3
 			this.ld[x][1] = (this.pe[x][0] + 2 * this.pe[x + 1][0]) / 3
+			this.w[x] = this.ld[x][0] - this.pe[x][0]
 			this.ld[x][2] = (this.pe[x][1] * 2 + this.pe[x + 1][1]) / 3
 			this.ld[x][3] = (this.pe[x][1] + 2 * this.pe[x + 1][1]) / 3
 			this.ld[x][4] = (this.pe[x][2] * 2 + this.pe[x + 1][2]) / 3
 			this.ld[x][5] = (this.pe[x][2] + 2 * this.pe[x + 1][2]) / 3
-			this.ld[x][6] = (this.pe[x][3] * 2 + this.pe[x + 1][3]) / 3
-			this.ld[x][7] = (this.pe[x][3] + 2 * this.pe[x + 1][3]) / 3
-			this.w[x] = this.ld[x][0] - this.pe[x][0]
-
+			this.ld[x][2] = (this.pe[x][4] - (this.ld[x][4] - this.ld[x][2])) * .8
+			this.ld[x][3] = (this.pe[x][5] - (this.ld[x][5] - this.ld[x][3])) * .8
+			if (this.ld[x][3] > this.ld[x][4]) {
+				this.ld[x][3] = this.ld[x][3] - 1
+			}
 		}
 
-		// 100 FOR X = 1 TO 10:CD%(X,0) = 139 - XX%(X) / 3:CD%(X,1) = 139 + XX%(X) / 3:CD%(X,2) = 79 - YY%(X) * .7:CD%(X,3) = 79 + YY%(X): NEXT : PRINT " .";
-		// 110 LD%(X,2) = PE%(X,2) + W * 4 / 7:LD%(X,3) = PE%(X,2) + 2 * W * 4 / 7: LD%(X,4) = (PE%(X,3) * 2 + PE%(X + 1,3)) / 3:LD%(X,5) = (PE%(X,3) + 2 * PE%(X + 1,3)) / 3
-		// 115 LD%(X,2) = LD%(X,4) - (LD%(X,4) - LD%(X,2)) * .8:LD%(X,3) = LD%(X,5) - (LD%(X,5) - LD%(X,3)) * .8: IF LD%(X,3) = LD%(X,4) THEN LD%(X,3) = LD%(X,3) - 1
-		// 120 NEXT
-		// for(let x = 1; x <= 10; x++) {
-		// 	this.cd[x][0] = 139 - this.xx[x] / 3
-		// 	this.cd[x][1] = 139 + this.xx[x] / 3
-		// 	this.cd[x][2] = 79 - this.yy[x] * .7
-		// 	this.cd[x][3] = 79 + this.yy[x]
-		// }
+		for (let x = 0; x < 9; x++) {
+			this.ft[x][0] = 139 - this.xx[x] / 3
+			this.ft[x][1] = 139 + this.xx[x] / 3
+			this.ft[x][2] = 139 - this.xx[x + 1] / 3
+			this.ft[x][3] = 139 + this.xx[x + 1] / 3
+			this.ft[x][4] = 79 + (this.yy[x] * 2 + this.yy[x + 1]) / 3
+			this.ft[x][5] = 79 + (this.yy[x] + 2 * this.yy[x + 1]) / 3
+		}
 
+		// 		850  FOR X = 0 TO 9
+		// 860  LA(X,0) = (FT%(X,0) * 2 + FT%(X,1)) / 3
+		// 870  LA(X,1) = (FT%(X,0) + 2 * FT%(X,1)) / 3
+		// 880  LA(X,3) = FT%(X,4)
+		// 890  LA(X,2) = 159 - LA(X,3)
+		// 900   NEXT
+		for (let x = 0; x < 9; x++) {
+			this.la[x][0] = (this.ft[x][0] * 2 + this.ft[x][1]) / 3
+			this.la[x][1] = (this.ft[x][0] + 2 * this.ft[x][1]) / 3
+			this.la[x][3] = this.ft[x][4]
+			this.la[x][2] = 159 - this.la[x][3]
+		}
+	}
 
-		// FOR X = 0 TO 9
-		// :FT%(X,0) = 139 - XX%(X) / 3
-		// :FT%(X,1) = 139 + XX%(X) / 3
-		// :FT%(X,2) = 139 - XX%(X + 1) / 3
-		// :FT%(X,3) = 139 + XX%(X + 1) / 3
-		// :FT%(X,4) = 79 + (YY%(X) * 2 + YY%(X + 1)) / 3
-		// :FT%(X,5) = 79 + (YY%(X) + 2 * YY%(X + 1)) / 3
-		// NEXT
-		// for(let x = 0; x <= 9; x++) {
-		// 	this.ft[x][0] = 139 - this.xx[x] / 3
-		// 	this.ft[x][1] = 139 + this.xx[x] / 3
-		// 	this.ft[x][2] = 139 - this.xx[x + 1] / 3
-		// 	this.ft[x][3] = 139 + this.xx[x + 1] / 3
-		// 	this.ft[x][4] = 79 + (this.yy[x] * 2 + this.yy[x + 1]) / 3
-		// 	this.ft[x][5] = 79 + (this.yy[x] + 2 * this.yy[x + 1]) / 3
-		// }
+	line(x1, y1, x2, y2, color) {
+		this.add.line(x1, y1, x2, y2, 0x00ff00, 1)
+	}
 
-		// 135 FOR X = 0 TO 9:LA(X,0) = (FT%(X,0) * 2 + FT%(X,1)) / 3:LA(X,1) = (FT%(X,0) + 2 * FT%(X,1)) / 3:LA(X,3) = FT%(X,4):LA(X,2) = 159 - LA(X,3): NEXT
+	draw_overland() {
+		for (let y = -1; y < 1; y++) {
+			for (let x = -1; x < 1; x++) {
+				this.line(138, 75, 142, 75, 0x00ff00)
+				this.line(140, 73, 140, 77, 0x00ff00)
+				this.zz = this.te[this.tx + x][this.ty + y]
+				this.x1 = 65 + (x + 1) * 50
+				this.y1 = (y + 1) * 50
+				console.log("ZZ ", this.zz)
+				if (this.zz == 2) {
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
+				}
+				if (this.zz == 3) {
+					this.add.rectangle(this.x1 + 10, this.y1 + 10, 10, 30, 0x00ff00)
+					this.add.rectangle(this.x1 + 40, this.y1 + 10, 10, 30, 0x00ff00)
+					this.add.rectangle(this.x1 + 40, this.y1 + 10, 30, 10, 0x00ff00)
+				}
+				if (this.zz == 4) {
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
+				}
+				if (this.zz == 5) {
+					this.add.rectangle(this.x1, this.y1, 50, 50, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1 + 10, 30, 30, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, 0x00ff00)
+				}
+				if (this.zz == 1) {
+					this.add.rectangle(this.x1 + 10, this.y1 + 50, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1, this.y1 + 10, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 50, this.y1 + 10, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1, this.y1 + 40, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 40, this.y1 + 40, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 40, this.y1, 10, 10, 0x00ff00)
+				}
+			}
+		}
+	}
 
-		console.log("XX")
-		console.table(this.xx)
+	draw_dungeon() {
+		let dis = 0
+		let px = 0
+		let cent = this.dn[px + dx + dis][this.py + this.dy + dis]
+	}
 
-		//
+	navigate_dungeon() {
+		// Get input from keybord and store it in Q
+		var cursorKeys = this.input.keyboard.createCursorKeys();
+
+		if (cursorKeys.up.isDown) {
+			this.lbff_text(1, 12, "NORTH", 10, 24, this.style)
+		}
+		if (cursorKeys.down.isDown) {
+			this.lbff_text(1, 12, "SOUTH", 10, 24, this.style)
+		}
+		if (cursorKeys.left.isDown) {
+			this.lbff_text(1, 12, "TURN LEFT", 10, 24, this.style)
+		}
+		if (cursorKeys.right.isDown) {
+			this.lbff_text(1, 12, "TURN RIGHT", 10, 24, this.style)
+		}
 	}
 
 	create() {
 		console.table(this.te)
 		//this.character_create()
 
-		this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
+		// this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
+		this.draw_overland()
 	}
 
 	/**
