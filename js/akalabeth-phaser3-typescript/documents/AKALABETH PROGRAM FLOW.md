@@ -1,0 +1,95 @@
+# AKALABETH VARIABLES
+
+```javascript
+int ZZ
+int LE
+int DN[10,10]
+int TE[20,20]
+int XX[10]
+int YY[10]
+int PE[10,3]
+int LD[10,5]
+int CD[10,3]
+int FT[10,5]
+any LA[10,3]
+int X
+int Y
+int X1
+int Y1
+int DI
+int CE
+int RI
+int MC
+int L1
+int T2
+int L2
+int T2
+int B2
+int R1
+int R2
+string C[5] // Character Inventory in Store
+int B
+int EN
+int LN
+int TY
+int TX
+int IO
+string W[5] // Item Names
+int Z // Item Index
+int P // Item Price
+string PT
+int PW[5] // Character Inventory ??
+string M[10] // Monster Names
+string ML[10,1]
+string MZ[10,1]
+int LV // Game Difficulty Level
+```
+
+# AKALABETH PROGRAM FLOW
+
+```mermaid
+graph
+5-->20
+20[20 GOSUB]-->1790
+1790[1790 CHARACTER CREATION]-->20
+20-->155-->175
+175-->155
+155-->160-->905[905 GET COMMAND]
+905-->925{925 READ KEYBOARD}
+925-->|X=141|1020[1020 NORTH]
+1020-->980
+925-->|X=149|1065[1065 EAST]
+1065-->980
+925-->|X=136|1090[1090 WEST]
+1090-->980
+925-->|X=175|1115[1115 SOUTH]
+1115-->980
+925-->|X=216|1130[1130 ??]
+1130-->980
+925-->|X=193 OR X =155|1195[1195 ??]
+1195-->980
+925-->|"X=160 (PASS COMMAND)"|980
+925-->|"X=211"|1395
+925-->|"X=208 (PAUSE TOGGLE)"|905
+925-->|"EVERY OTHER KEY"|905[905 HUH?]
+980-->|"PW(0) < 0 (NO FOOD)"|995[995 STARVE]
+995-->|"C(0)<=0"|1635[1635 DIE]
+1195-->980{980 CHECK FOOD}
+1395-->1895[1895 STORE]
+1895-->1395
+1395-->980
+1635-->1670
+1670{GAME OVER: ESC PRESSED?}-->|"YES"|5
+1670-->|"NO"|1670
+1680-->|PN HAS VALUE|1705{WILLING TO DO QUEST?}
+1705-->|"NO"| 980
+1705-->|"YES"| 1715
+1715[1715 AGREED TO QUEST] --> 980
+STATSPLUS1
+1730{QUEST COMPLETE?}-->|"NO"|980
+1730-->|"YES"|1735{LAST QUEST?}
+1735-->|"YES"|1750
+1735-->|"NO"|1765[1765 NEXT DIFFICULTY LEVEL]
+1765-->1725
+1715-->1725
+```
