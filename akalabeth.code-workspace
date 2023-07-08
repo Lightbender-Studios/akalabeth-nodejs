@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "js/akalabeth-phaser3-typescript"
+		},
+		{
+			"path": "../akalabeth"
 		}
 	],
 	"settings": {

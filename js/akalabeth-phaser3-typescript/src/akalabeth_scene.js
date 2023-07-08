@@ -19,8 +19,8 @@ export default class Akalabeth extends Phaser.Scene {
 		this.item_names = ["FOOD", "RAPIER", "AXE", "SHIELD", "BOW AND ARROWS ", "MAGIC AMULET"]
 		this.monster_names = ["SKELETON", "ORC", "TROLL", "VAMPIRE", "GREMLIN", "GHOUL", "DEMON", "DRAGON"]
 		this.style = { font: '24px Courier', fill: this.main_colour_hex }
-		this.main_colour_string="0x00ff00"
-		this.main_colour_hex=0xff0000
+		this.main_colour_string = "0x00ff00"
+		this.main_colour_hex = 0xff0000
 
 		this.create_terrain_mountain_boundry()
 		this.create_random_terrain()
@@ -119,45 +119,81 @@ export default class Akalabeth extends Phaser.Scene {
 		}
 	}
 
+	/**
+	 * @param {number} x1
+	 * @param {number} y1
+	 * @param {number} x2
+	 * @param {number} y2
+	 * @param {number} color
+	 */
 	line(x1, y1, x2, y2, color) {
 		this.add.line(x1, y1, x2, y2, 0x00ff00, 1)
 	}
 
-	draw_overland() {
+	/**
+	 * @param {number} x
+	 * @param {number} y
+	 */
+	draw_initial(x, y) {
+		this.line(138, 75, 142, 75, 0x00ff00)
+		this.line(140, 73, 140, 77, 0x00ff00)
+		this.zz = this.te[this.tx + x][this.ty + y]
+		this.x1 = 65 + (x + 1) * 50
+		this.y1 = (y + 1) * 50
+	}
+
+	draw_legend_1() {
+		this.add.rectangle(this.x1 + 10, this.y1 + 50, 10, 10, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1, this.y1 + 10, 10, 10, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 50, this.y1 + 10, 10, 10, this.main_colour_hex)
+		this.add.rectangle(this.x1, this.y1 + 40, 10, 10, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 40, this.y1 + 40, 10, 10, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 10, this.y1, 10, 10, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 40, this.y1, 10, 10, this.main_colour_hex)
+	}
+
+	draw_legend_2() {
+		this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
+	}
+
+	draw_legend_3() {
+		this.add.rectangle(this.x1 + 10, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 40, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 40, this.y1 + 10, 30, 10, this.main_colour_hex, this.main_colour_hex)
+	}
+
+	draw_legend_4() {
+		this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
+	}
+
+	draw_legend_5() {
+		this.add.rectangle(this.x1, this.y1, 50, 50, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 10, this.y1 + 10, 30, 30, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
+		this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
+	}
+
+	draw_overworld() {
 		for (let y = -1; y < 1; y++) {
 			for (let x = -1; x < 1; x++) {
-				this.line(138, 75, 142, 75, 0x00ff00)
-				this.line(140, 73, 140, 77, 0x00ff00)
-				this.zz = this.te[this.tx + x][this.ty + y]
-				this.x1 = 65 + (x + 1) * 50
-				this.y1 = (y + 1) * 50
+				this.draw_initial(x, y)
 				console.log("ZZ ", this.zz)
-				if (this.zz == 2) {
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
-				}
-				if (this.zz == 3) {
-					this.add.rectangle(this.x1 + 10, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 40, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 40, this.y1 + 10, 30, 10, this.main_colour_hex, this.main_colour_hex)
-				}
-				if (this.zz == 4) {
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
-				}
-				if (this.zz == 5) {
-					this.add.rectangle(this.x1, this.y1, 50, 50, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 10, this.y1 + 10, 30, 30, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
-				}
-				if (this.zz == 1) {
-					this.add.rectangle(this.x1 + 10, this.y1 + 50, 10, 10, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1, this.y1 + 10, 10, 10, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 50, this.y1 + 10, 10, 10, this.main_colour_hex)
-					this.add.rectangle(this.x1, this.y1 + 40, 10, 10, this.main_colour_hex, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 40, this.y1 + 40, 10, 10, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 10, this.y1, 10, 10, this.main_colour_hex)
-					this.add.rectangle(this.x1 + 40, this.y1, 10, 10, this.main_colour_hex)
+				switch (this.zz) {
+					case 1:
+						this.draw_legend_1()
+						break;
+					case 2:
+						this.draw_legend_2()
+						break;
+					case 3:
+						this.draw_legend_3()
+						break;
+					case 4:
+						this.draw_legend_4()
+						break;
+					case 5:
+						this.draw_legend_5()
 				}
 			}
 		}
@@ -198,7 +234,8 @@ export default class Akalabeth extends Phaser.Scene {
 		//this.character_create()
 
 		// this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
-		this.draw_overland()
+		// this.draw_overworld()
+		this.draw_legend_1()
 	}
 
 	/**
