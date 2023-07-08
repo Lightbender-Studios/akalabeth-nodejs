@@ -112,6 +112,12 @@
 1120  ZZ = TE%(TX + X,TY + Y)
 1130  X1 = 65 + (X + 1) * 50
 1140  Y1 = (Y + 1) * 50
+1145 REM ZZ   Description
+1146 REM 1    ??
+1146 REM 2    ??
+1147 REM 3    Town
+1148 REM 4    Dungeon
+1149 REM 5    Castle
 1150  IF ZZ = 2 THEN HPLOT X1 + 20,Y1 + 20 TO X1 + 30,Y1 + 20 TO X1 + 30 ,Y1 + 30 TO X1 + 20,Y1 + 30 TO X1 + 20,Y1 + 20
 1160  IF ZZ = 3 THEN HPLOT X1 + 10,Y1 + 10 TO X1 + 20,Y1 + 10 TO X1 + 20 ,Y1 + 40 TO X1 + 10,Y1 + 40 TO X1 + 10,Y1 + 30
 1170  IF ZZ = 3 THEN HPLOT X1 + 40,Y1 + 30 TO X1 + 40,Y1 + 40 TO X1 + 30,Y1 + 40 TO X1 + 30,Y1 + 10 TO X1 + 40,Y1 + 10

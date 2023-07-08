@@ -13,6 +13,7 @@
 		"vite": "^3.1.0"
 	},
 	"dependencies": {
+		"latest": "^0.2.0",
 		"parcel": "^2.9.3",
 		"phaser": "^3.55.2"
 	}
