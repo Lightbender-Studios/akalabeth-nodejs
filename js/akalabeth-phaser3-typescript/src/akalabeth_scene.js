@@ -18,7 +18,9 @@ export default class Akalabeth extends Phaser.Scene {
 		this.w = this.lbff_new_array(9, -1, -1)
 		this.item_names = ["FOOD", "RAPIER", "AXE", "SHIELD", "BOW AND ARROWS ", "MAGIC AMULET"]
 		this.monster_names = ["SKELETON", "ORC", "TROLL", "VAMPIRE", "GREMLIN", "GHOUL", "DEMON", "DRAGON"]
-		this.style = { font: '24px Courier', fill: '#00ff00' }
+		this.style = { font: '24px Courier', fill: this.main_colour_hex }
+		this.main_colour_string="0x00ff00"
+		this.main_colour_hex=0xff0000
 
 		this.create_terrain_mountain_boundry()
 		this.create_random_terrain()
@@ -131,39 +133,45 @@ export default class Akalabeth extends Phaser.Scene {
 				this.y1 = (y + 1) * 50
 				console.log("ZZ ", this.zz)
 				if (this.zz == 2) {
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
 				}
 				if (this.zz == 3) {
-					this.add.rectangle(this.x1 + 10, this.y1 + 10, 10, 30, 0x00ff00)
-					this.add.rectangle(this.x1 + 40, this.y1 + 10, 10, 30, 0x00ff00)
-					this.add.rectangle(this.x1 + 40, this.y1 + 10, 30, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 40, this.y1 + 10, 10, 30, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 40, this.y1 + 10, 30, 10, this.main_colour_hex, this.main_colour_hex)
 				}
 				if (this.zz == 4) {
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 20, this.y1 + 20, 10, 10, this.main_colour_hex, this.main_colour_hex)
 				}
 				if (this.zz == 5) {
-					this.add.rectangle(this.x1, this.y1, 50, 50, 0x00ff00)
-					this.add.rectangle(this.x1 + 10, this.y1 + 10, 30, 30, 0x00ff00)
-					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, 0x00ff00)
-					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, 0x00ff00)
+					this.add.rectangle(this.x1, this.y1, 50, 50, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 10, this.y1 + 10, 30, 30, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 10, this.y1 + 40, 30, 30, this.main_colour_hex, this.main_colour_hex)
 				}
 				if (this.zz == 1) {
-					this.add.rectangle(this.x1 + 10, this.y1 + 50, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1, this.y1 + 10, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1 + 50, this.y1 + 10, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1, this.y1 + 40, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1 + 40, this.y1 + 40, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1 + 10, this.y1, 10, 10, 0x00ff00)
-					this.add.rectangle(this.x1 + 40, this.y1, 10, 10, 0x00ff00)
+					this.add.rectangle(this.x1 + 10, this.y1 + 50, 10, 10, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1, this.y1 + 10, 10, 10, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 50, this.y1 + 10, 10, 10, this.main_colour_hex)
+					this.add.rectangle(this.x1, this.y1 + 40, 10, 10, this.main_colour_hex, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 40, this.y1 + 40, 10, 10, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 10, this.y1, 10, 10, this.main_colour_hex)
+					this.add.rectangle(this.x1 + 40, this.y1, 10, 10, this.main_colour_hex)
 				}
 			}
 		}
 	}
 
 	draw_dungeon() {
+		// TODO: Double check vars
+		let dx = 0
+		let dy = 0
 		let dis = 0
 		let px = 0
+		let py = 0
+		this.py = 0
+		this.dy = 0
 		let cent = this.dn[px + dx + dis][this.py + this.dy + dis]
 	}
 
@@ -234,7 +242,7 @@ export default class Akalabeth extends Phaser.Scene {
 		let fontSize = 24
 		let margin = 10
 		let lineNumber = 0
-		let style = { font: '24px Courier', fill: '#00ff00' }
+		let style = { font: '24px Courier', fill: this.main_colour_string }
 		let lines = ["TYPE THY LUCKY NUMBER.....", "LEVEL OF PLAY (1-10)......", "LINE 2", "LINE 3", "LINE 4"]
 
 		lines.forEach(element => {
