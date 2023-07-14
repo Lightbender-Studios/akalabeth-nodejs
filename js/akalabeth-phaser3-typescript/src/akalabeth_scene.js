@@ -236,6 +236,10 @@ export default class Akalabeth extends Phaser.Scene {
 		// this.lbff_text(1, 12, "WELCOME TO AKALABETH, WORLD OF DOOM!", 10, 24, this.style)
 		// this.draw_overworld()
 		this.draw_legend_1()
+		this.draw_legend_1()
+		this.draw_legend_1()
+		this.draw_legend_1()
+		this.draw_legend_1()
 	}
 
 	/**
