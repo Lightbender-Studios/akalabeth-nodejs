@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 
 import akalabeth_scene from './akalabeth_scene'
+import overworld_scene from './overworld_scene'
 
 const config = {
 	type: Phaser.AUTO,
@@ -13,7 +14,8 @@ const config = {
 			gravity: { y: 0 },
 		},
 	},
-	scene: [akalabeth_scene],
+	// scene: [akalabeth_scene],
+	scene: [overworld_scene],
 }
 
 export default new Phaser.Game(config)
